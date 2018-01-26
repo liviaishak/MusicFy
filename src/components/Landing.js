@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Landing = () => (
-  <section className="landing">
+  <section className="landing"> //check cp Landing
     <h1 className="hero-title">Turn the music up!</h1>
 
     <section className="selling-points">
@@ -12,13 +12,13 @@ const Landing = () => (
       <div className="point">
         <h2 className="point-title">Unlimited, streaming, ad-free</h2>
         <p className="point-description">No arbitrary limits. No distractions.</p>
-        <div className="point">
+      </div>
+      <div className="point">
           <h2 className="point-title">Mobile enabled</h2>
           <p className="point-description">Listen to your music on the go. This streaming service is available on all mobile platforms.</p>
       </div>
     </section>
    </section>
  );
-);
 
 export default Landing;
