@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
+// import './../styles/player-bar.css'
+
+
 
 class Album extends Component {
    constructor(props) {
@@ -21,7 +24,7 @@ class Album extends Component {
 
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
-    // this.audioElement.currentVolume = this.state.currentVolume;
+    this.audioElement.currentVolume = this.state.currentVolume;
   }
 
   componentDidMount() {
@@ -31,16 +34,19 @@ class Album extends Component {
        },
        durationchange: e => {
          this.setState({ duration: this.audioElement.duration });
-       }
+       },
      };
+
      this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
      this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
+
    }
 
    componentWillUnmount() {
      this.audioElement.src = null;
      this.audioElement.removeEventListener('timeupdate', this.eventListeners.timeupdate);
      this.audioElement.removeEventListener('durationchange', this.eventListeners.durationchange);
+
    }
 
 
@@ -97,7 +103,7 @@ class Album extends Component {
 
    handleVolumeChange(e) {
       const newVolume = e.target.value;
-      this.audioElement.currentVolume = newVolume;
+      this.audioElement.volume = newVolume;
       this.setState({ currentVolume: newVolume });
     }
 
@@ -152,7 +158,7 @@ class Album extends Component {
            currentSong={this.state.currentSong}
            currentTime={this.audioElement.currentTime}
            duration={this.audioElement.duration}
-           currentVolume= {this.state.currentVolume}
+           currentVolume= {this.audioElement.volume}
            handleSongClick={() => this.handleSongClick(this.state.currentSong)}
            handlePrevClick={() => this.handlePrevClick()}
            handleNextClick={() => this.handleNextClick()}
