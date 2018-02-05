@@ -12,6 +12,23 @@ body {
   font-family: circular ,helvetica, sans-serif;
 }
 
+.song-actions {
+     text-align: center;
+     font-size: 14px;
+     background-color: white;
+     color: rgb(210, 40, 123);
+     border-radius: 50% 50%;
+     display: inline-block;
+     width: 28px;
+     height: 28px;
+ }
+
+ .song-actions:hover {
+     cursor: pointer;
+     color: white;
+     background-color: rgb(210, 40, 123);
+ }
+
 /* nav {
   background: hsla(0, 0%, 0%, 0.2);
   padding: 1rem 2rem;

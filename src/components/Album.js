@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import PlayerBar from './PlayerBar';
-// import './../styles/player-bar.css'
+import './../styles/landing.css'
 
 
 
@@ -118,6 +118,8 @@ class Album extends Component {
      ].filter(s => s).join(':');
    }
 
+   //assignment10
+
 
   render() {
     return (
@@ -141,11 +143,14 @@ class Album extends Component {
         {this.state.album.songs.map( (song, index) =>
                <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } >
                  <td className="song-actions">
-                   <button>
-                     <span className="song-number">{index+1}</span>
-                     <span className="ion-play"></span>
-                     <span className="ion-pause"></span>
+                   <button id="three-buttons" onClick={this.props.handleSongClick}>
+                   <span className={this.props.isPlaying ? 'song-number'>(index+1) : 'ion-play'}></span>
+
+                   //   <span className="song-number">{index+1}</span>
+                   //   <span className="ion-play"></span>
+                   //   <span className="ion-pause"></span>
                    </button>
+
                  </td>
                  <td className="song-title">{song.title}</td>
                  <td className="song-duration">{song.duration}</td>
