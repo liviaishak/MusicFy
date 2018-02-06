@@ -140,23 +140,20 @@ class Album extends Component {
         </colgroup>
 
         <tbody>
-        {this.state.album.songs.map( (song, index) =>
+             {this.state.album.songs.map( (song, index) =>
                <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } >
                  <td className="song-actions">
-                   <button id="three-buttons" onClick={this.props.handleSongClick}>
-                   <span className={this.props.isPlaying ? 'song-number'>(index+1) : 'ion-play'}></span>
-
-                   //   <span className="song-number">{index+1}</span>
-                   //   <span className="ion-play"></span>
-                   //   <span className="ion-pause"></span>
-                   </button>
-
+                 <button className="album-btns">
+                    <span className={"song-number" + (this.state.currentSong === song && this.state.isPlaying ? " hide" : " show")}>{index+1}</span>
+                    <span className={"song-buttons" + (!this.state.isPlaying || (this.state.isPlaying && this.state.currentSong !== song) ? " ion-play hide" : " ion-pause")}></span>
+                </button>
                  </td>
                  <td className="song-title">{song.title}</td>
                  <td className="song-duration">{song.duration}</td>
                </tr>
-       )}
-        </tbody>
+             )}
+           </tbody>
+
         </table>
         <PlayerBar
            isPlaying={this.state.isPlaying}
