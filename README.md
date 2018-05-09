@@ -1,5 +1,5 @@
-## Bloc-Jams-React
-Bloc-Jams-React is a music player app created with React.
+## MusicFy
+MusicFy is a music player app created with React.
 ## Features:
 Built-in music player
 CSS3 animations
