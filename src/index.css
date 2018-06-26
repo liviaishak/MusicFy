@@ -3,3 +3,11 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+nav a {
+  color: white;
+}
+
+.library div {
+  color: white;
+}
